@@ -35,7 +35,86 @@
 .routeway:before,
 .routeway .line-fill {
   top: 8px;
-}</style></head>
+}
+
+/* Mobile route alignment: balance both country blocks around the center line. */
+.route {
+  grid-template-columns: minmax(0, 1fr) minmax(72px, .9fr) minmax(0, 1fr);
+  align-items: center;
+  column-gap: 4px;
+}
+
+.place {
+  min-width: 0;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 6px;
+  align-items: center;
+}
+
+.place .flag {
+  width: 24px;
+  text-align: center;
+  line-height: 1;
+}
+
+.place strong,
+.place small {
+  overflow-wrap: anywhere;
+}
+
+.place.end {
+  grid-template-columns: minmax(0, 1fr) 24px;
+  gap: 6px;
+}
+
+.routeway {
+  min-width: 0;
+  align-self: center;
+  height: 18px;
+  margin: 0;
+  transform: none;
+}
+
+.routeway:before,
+.routeway .line-fill {
+  top: 8px;
+}
+
+@media (max-width: 380px) {
+  .route {
+    grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
+    column-gap: 3px;
+  }
+
+  .place {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 4px;
+  }
+
+  .place .flag {
+    width: 22px;
+    font-size: 20px;
+  }
+
+  .place strong {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .place small {
+    font-size: 10px;
+  }
+
+  .place.end {
+    grid-template-columns: minmax(0, 1fr) 22px;
+    gap: 4px;
+  }
+
+  .routeway {
+    transform: none;
+  }
+}
+</style></head>
 <body><main class="wrap"><header class="top"><div class="brand-lockup"><div class="brand"><span>PRIMA</span><span class="brand-accent">CARGO</span></div><div class="brand-rule"></div><div class="tag" data-t="tag">ДОСТАВКА ИЗ КИТАЯ</div></div><div class="tools"><button class="tool" id="langBtn" aria-label="Язык" aria-expanded="false">RU</button><button class="tool theme-btn" id="themeBtn" aria-label="Переключить тему"></button></div><div class="menu" id="langMenu" role="menu"><button class="langopt" data-lang="ru" role="menuitem">🇷🇺<span>Русский</span><span class="lang-check">✓</span></button><button class="langopt" data-lang="tg" role="menuitem">🇹🇯<span>Тоҷикӣ</span><span class="lang-check">✓</span></button><button class="langopt" data-lang="en" role="menuitem">🇬🇧<span>English</span><span class="lang-check">✓</span></button><button class="langopt" data-lang="zh" role="menuitem">🇨🇳<span>中文</span><span class="lang-check">✓</span></button></div></header>
 <section class="hero"><div class="eyebrow" data-t="eyebrow">В пути вместе с вами</div><h1 data-t="headline">Ваш заказ<br>под контролем</h1><p class="hero-sub" data-t="sub"><span class="live-dot" aria-hidden="true"></span><span class="sub-copy">Отслеживайте доставку из Китая в Таджикистан</span></p><div class="route"><div class="place"><span class="flag">🇨🇳</span><div><strong data-t="china">Китай</strong><small data-t="origin">Отправление</small></div></div><div class="routeway" aria-hidden="true"><span class="line-fill"></span><i class="route-dot"></i><i class="route-dot"></i></div><div class="place end"><span class="flag">🇹🇯</span><div><strong data-t="tajik">Таджикистан</strong><small data-t="destination">Получение</small></div></div></div></section>
 <section class="form"><label class="label" for="code" data-t="label">Код заказа</label><div class="inputrow"><input id="code" maxlength="64" autocomplete="off" placeholder="Например, PC-10245"><button id="check" class="submit" data-t="button">Проверить</button></div><div class="toast" id="toast" role="status"></div><article class="result" id="result"><div class="resulthead"><span id="orderCode"></span><span class="badge" data-t="statusLabel">СТАТУС</span></div><p id="status"></p><p id="updated"></p></article></section>

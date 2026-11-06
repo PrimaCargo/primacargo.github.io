@@ -291,7 +291,6 @@ STATUS_ICONS = ("⏳", "🇨🇳", "🔍", "📦", "🧳", "🚢", "🚚", "🇹
 
 def language_keyboard(uid):
     rows = [[KeyboardButton(text=label)] for label in LANGUAGE_BUTTONS]
-    rows.append([KeyboardButton(text=tr(uid, "back_menu"))])
     return ReplyKeyboardMarkup(keyboard=rows, resize_keyboard=True, one_time_keyboard=True)
 
 def order_status_keyboard(code, lang):
